@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Form</title>
+</head>
+<body>
+
+<h2>Employee Form</h2>
+
+<form id="f">
+    ID: <input type="number" id="id" required><br><br>
+    Name: <input type="text" id="name" required><br><br>
+
+    Role:
+    <select id="role" required>
+        <option value="">Select Role</option>
+        <option>Developer</option>
+        <option>Tester</option>
+        <option>Manager</option>
+        <option>HR</option>
+    </select><br><br>
+
+    Salary: <input type="number" id="salary" required><br><br>
+    <button>Add Employee</button>
+</form>
+
+<h2>Employee Details</h2>
+
+<table border="1">
+    <tr><th>ID</th><th>Name</th><th>Role</th><th>Salary</th></tr>
+    <tbody id="data"></tbody>
+</table>
+
+<script>
+document.getElementById("f").onsubmit = function(e) {
+    e.preventDefault();
+    var id = document.getElementById("id").value;
+    var name = document.getElementById("name").value;
+    var role = document.getElementById("role").value;
+    var salary = document.getElementById("salary").value;
+
+    document.getElementById("data").innerHTML +=
+        "<tr><td>" + id + "</td><td>" + name + "</td><td>" +
+        role + "</td><td>" + salary + "</td></tr>";
+
+    this.reset();
+};
+</script>
+
+</body>
+</html>
